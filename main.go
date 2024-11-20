@@ -14,6 +14,9 @@ import (
 
 var cliOutput bool = false     // false - без вывода в консоль; true с выводом
 var displayCounter bool = true // false - без счётчика; true c счётчиком
+
+var translator transateITE.Translator
+
 //mb stoit TO PARSE
 // https://itexamanswers.net/ccna-2-v7-0-final-exam-answers-full-switching-routing-and-wireless-essentials.html
 // https://itexamanswers.net/ccna-1-v5-1-v6-0-practice-final-exam-answers-100-full.html
@@ -34,6 +37,7 @@ var displayCounter bool = true // false - без счётчика; true c счё
 
 func main() {
 	url := "https://itexamanswers.net/5-4-2-module-quiz-stp-answers.html" // ССЫЛКУ СЮДА
+	translator.TranslateMech = "yandex"                                   // yandex или google
 	geziyor.NewGeziyor(&geziyor.Options{
 		StartURLs: []string{url},
 		ParseFunc: parseTestsITE,
@@ -63,7 +67,7 @@ func parseTestsAncient(g *geziyor.Geziyor, r *client.Response) {
 		}
 		question := s.Find("strong").Text()
 		fileEn.WriteString(question + "\n")
-		fileRu.WriteString(transateITE.TranslateITE(question) + "\n")
+		fileRu.WriteString(translator.TranslateITE(question) + "\n")
 		if cliOutput {
 			fmt.Println(question)
 		}
@@ -73,7 +77,7 @@ func parseTestsAncient(g *geziyor.Geziyor, r *client.Response) {
 				liText = "**" + liText
 			}
 			fileEn.WriteString("\t" + liText + "\n")
-			fileRu.WriteString("\t" + transateITE.TranslateITE(liText) + "\n")
+			fileRu.WriteString("\t" + translator.TranslateITE(liText) + "\n")
 			if cliOutput {
 				fmt.Println("\t" + liText)
 			}
@@ -115,7 +119,7 @@ func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
 		}
 		ul := s
 		pText := strings.ReplaceAll(p.Text(), "\n", " ")
-		pTextRu := transateITE.TranslateITE(pText)
+		pTextRu := translator.TranslateITE(pText)
 		answers := make([]string, 0, 4)
 		ul.Find("li").Each(func(i int, s *goquery.Selection) {
 			liText := s.Text()
@@ -138,7 +142,7 @@ func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
 				fmt.Println("\t" + answer)
 			}
 			fileEn.WriteString("\t" + answer + "\n")
-			fileRu.WriteString("\t" + transateITE.TranslateITE(answer) + "\n")
+			fileRu.WriteString("\t" + translator.TranslateITE(answer) + "\n")
 		}
 		fileEn.WriteString("\n\n")
 		fileRu.WriteString("\n\n")
@@ -147,6 +151,7 @@ func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
 			fmt.Println()
 		}
 	})
+
 	// for _, v := range peshki.EachIter() {
 	// 	fmt.Println(v.Text())
 	// }
