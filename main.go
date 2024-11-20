@@ -13,9 +13,26 @@ import (
 )
 
 var cliOutput bool = false // false - без вывода в консоль true с выводом
+//mb stoit TO PARSE
+// https://itexamanswers.net/ccna-2-v7-0-final-exam-answers-full-switching-routing-and-wireless-essentials.html
+// https://itexamanswers.net/ccna-1-v5-1-v6-0-practice-final-exam-answers-100-full.html
+// https://itexamanswers.net/7-4-4-module-quiz-dhcpv4-answers.html
+// https://itexamanswers.net/ewan-v4-chapter-7-check-your-understanding-ip-addressing-services.html
+// https://itexamanswers.net/ccna-4-exploration-v4-0-chapter-7-quiz-answers.html
+// https://itexamanswers.net/ccna-2-v7-modules-5-6-redundant-networks-exam-answers.html
+// https://itexamanswers.net/ccna-3-final-exam-answers-v5-0-3-v6-0-scaling-networks.html
+
+// PARSED
+// https://itexamanswers.net/5-4-2-module-quiz-stp-answers.html
+// https://itexamanswers.net/ccna-3-practice-final-exam-answers-v5-0-3-v6-0-full-100.html
+// https://itexamanswers.net/ccna-3-pretest-exam-answers-v5-0-3-v6-0-full-100.html
+// https://itexamanswers.net/ccna-2-v7-modules-5-6-redundant-networks-exam-answers.html
+// https://itexamanswers.net/chapter-3-quiz-advanced-spanning-tree-tuning-answers-ccnpv8-encor.html
+// https://itexamanswers.net/ccna-200-301-certification-practice-exam-answers-ensa-v7-0.html
+// https://itexamanswers.net/ccna-2-v7-modules-1-4-switching-concepts-vlans-and-intervlan-routing-exam-answers.html
 
 func main() {
-	url := "https://itexamanswers.net/ccna-2-v7-modules-1-4-switching-concepts-vlans-and-intervlan-routing-exam-answers.html" // ССЫЛКУ СЮДА
+	url := "https://itexamanswers.net/5-4-2-module-quiz-stp-answers.html" // ССЫЛКУ СЮДА
 	geziyor.NewGeziyor(&geziyor.Options{
 		StartURLs: []string{url},
 		ParseFunc: parseTestsITE,
