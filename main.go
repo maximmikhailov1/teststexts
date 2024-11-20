@@ -9,7 +9,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/geziyor/geziyor"
 	"github.com/geziyor/geziyor/client"
-	"github.com/geziyor/geziyor/export"
 )
 
 var cliOutput bool = false     // false - без вывода в консоль; true с выводом
@@ -41,7 +40,6 @@ func main() {
 	geziyor.NewGeziyor(&geziyor.Options{
 		StartURLs: []string{url},
 		ParseFunc: parseTestsITE,
-		Exporters: []export.Exporter{&export.JSON{}},
 	}).Start()
 }
 

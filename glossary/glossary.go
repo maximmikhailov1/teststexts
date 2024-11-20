@@ -23,4 +23,24 @@ var Glossary = []map[string]any{
 		"translatedText": "прослушивание",
 		"exact":          false,
 	},
+	{
+		"sourceText":     "PVST",
+		"translatedText": "PVST",
+		"exact":          false,
+	},
+	{
+		"sourceText":     "Rapid PVST",
+		"translatedText": "Rapid PVST",
+		"exact":          false,
+	},
+	{
+		"sourceText":     "forwarding",
+		"translatedText": "пересылка",
+		"exact":          false,
+	},
+	{
+		"sourceText":     "PVST+",
+		"translatedText": "PVST+",
+		"exact":          false,
+	},
 }
