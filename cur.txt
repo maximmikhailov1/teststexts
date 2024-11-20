@@ -1,448 +1,157 @@
-1. Which tasks can be accomplished by using the command history feature? (Choose two.)
-	View a list of commands entered in a previous session.
-	Recall up to 15 command lines by default.
-	**Set the command history buffer size.
-	**Recall previously entered commands.
-	Save command lines in a log file for future reference.
+1. Which port state will switch ports immediately transition to when configured for PortFast?
+	**forwarding
+	blocking
+	listening
+	learning
 
 
-2. What is the first action in the boot sequence when a switch is powered on?
-	load the default Cisco IOS software
-	load boot loader software
-	low-level CPU initialization
-	**load a power-on self-test program
+2. After the election of the root bridge has been completed, how will switches find the best paths to the root bridge?
+	Each switch will analyze the port states of all neighbors and use the designated ports to forward traffic to the root.
+	**Each switch will analyze the sum of all port costs to reach the root and use the path with the lowest cost.
+	Each switch will analyze the sum of the hops to reach the root and use the path with the fewest hops.
+	Each switch will analyze the BID of all neighbors to reach the root and use the path through the lowest BID neighbors.
 
 
-3. What must an administrator have in order to reset a lost password on a router?
-	a TFTP server
-	a crossover cable
-	access to another router
-	**physical access to the router
+3. Which is the default STP operation mode on Cisco Catalyst switches?
+	MST
+	**PVST+
+	Rapid PVST+
+	MSTP
+	RSTP
 
 
-4. When configuring a switch for SSH access, what other command that is associated with the login local command is required to be entered on the switch?
-	**enable secret password
-	**password password
-	**username username secret secret
-	**login block-for seconds attempts number within*seconds*
+4. What value determines the root bridge when all switches connected by trunk links have default STP configurations?
+	VLAN ID
+	**MAC address
+	extended system ID
+	bridge priority
 
 
-5. Which command displays information about the auto-MDIX setting for a specific interface?​
-	show interfaces
-	**show controllers
-	show processes
+5. During the implementation of Spanning Tree Protocol, all switches are rebooted by the network administrator. What is the first step of the spanning-tree election process?
+	**All the switches send out BPDUs advertising themselves as the root bridge.
+	Each switch determines the best path to forward traffic.
+	Each switch determines what port to block to prevent a loop from occurring.
+	Each switch with a lower root ID than its neighbor will not send BPDUs.
+
+
+6. Which two concepts relate to a switch port that is intended to have only end devices attached and intended never to be used to connect to another switch? (Choose two.)
+	bridge ID
+	**PortFast
+	**edge port
+	extended system ID
+	PVST+
+
+
+7. Which three port states are used by Rapid PVST+? (Choose three.)
+	listening
+	blocking
+	trunking
+	**learning
+	**forwarding
+	**discarding
+
+
+8. When PVST is running over a switched network, which port state can participate in BPDU frame forwarding based on BPDUs received, but does not forward data frames?
+	disabled
+	forwarding
+	**listening
+	blocking
+
+
+9. Which STP port role is adopted by a switch port if there is no other port with a lower cost to the root bridge?
+	designated port
+	alternate
+	disabled port
+	**root port
+
+
+10. Which two statements describe a switch port that is configured with PortFast? (Choose two.)
+	The switch port immediately transitions from the listening to the forwarding state.
+	**The switch port immediately transitions from blocking to the forwarding state.
+	The switch port sends DHCP requests before transitioning to the forwarding state.
+	The switch port immediately processes any BPDUs before transitioning to the forwarding state.
+	**The switch port should never receive BPDUs.
+
+
+11. What is one way to correct a spanning tree failure?
+	Replace the cables on failed STP links.
+	**Manually remove redundant links in the switched network.
+	Insert redundant links to replace the failed STP links.
+	Replace all instances of STP with RSTP.
+
+
+12. What additional information is contained in the 12-bit extended system ID of a BPDU?
+	port ID
+	MAC address
+	IP address
+	**VLAN ID
+
+
+13. An administrator is troubleshooting a switch and wants to verify if it is a root bridge. What command can be used to do this?
+	**show spanning-tree
 	show running-config
+	show vlan
+	show startup-config
 
 
-6. If one end of an Ethernet connection is configured for full duplex and the other end of the connection is configured for half duplex, where would late collisions be observed?
-	on both ends of the connection
-	on the full-duplex end of the connection
-	only on serial interfaces
-	**on the half-duplex end of the connection
+14. What is an accurate description of redundancy?
+	designing a network to use multiple virtual devices to ensure that all traffic uses the best path through the internetwork
+	configuring a router with a complete MAC address database to ensure that all frames can be forwarded to the correct destination
+	**designing a network to use multiple paths between switches to ensure there is no single point of failure
+	configuring a switch with proper security to ensure that all traffic forwarded through an interface is filtered
 
 
-7. Which command is used to set the BOOT environment variable that defines where to find the IOS image file on a switch?
-	config-register
-	**boot system
-	boot loader
-	confreg
+15. Which three components are combined to form a bridge ID? (Choose three.)
+	**Bridge priority
+	Cost
+	**Extended system ID
+	IP address
+	**MAC address
+	Port ID
 
 
-8. What does a switch use to locate and load the IOS image?
-	**BOOT environment variable
-	IOS image file
-	POST
-	startup-config
-	NVRAM
+16. What is an advantage of PVST+?
+	PVST+ optimizes performance on the network through automatic selection of the root bridge.
+	**PVST+ optimizes performance on the network through load sharing using multiple root bridges.
+	PVST+ reduces bandwidth consumption compared to traditional implementations of STP that use CST.
+	PVST+ requires fewer CPU cycles for all the switches in the network.
 
 
-9. Which protocol adds security to remote connections?
-	FTP
-	HTTP
-	NetBEUI
-	POP
-	**SSH
+17. In which two port states does a switch learn MAC addresses and process BPDUs in a PVST network? (Choose two.)
+	Blocking
+	Disabled
+	**Forwarding
+	**Learning
+	Listening
 
 
-10. What is a characteristic of an IPv4 loopback interface on a Cisco IOS router?​
-	The no shutdown command is required to place this interface in an UP state.​
-	**It is a logical interface internal to the router.
-	Only one loopback interface can be enabled on a router.​
-	It is assigned to a physical port and can be connected to other devices.
+18. What two features does Spanning Tree Protocol (STP) provide to ensure proper network operations? (Choose two.)
+	Implementing VLANs to contain broadcasts
+	Link-state dynamic routing that provides redundant routes
+	**Redundant links between Layer 2 switches
+	**Removing single points of failure with multiple Layer 2 switches
+	Static default routes
 
 
-11. What is the minimum Ethernet frame size that will not be discarded by the receiver as a runt frame?
-	**64 bytes
-	512 bytes
-	1024 bytes
-	1500 bytes
+19. Which PVST+ feature ensures that configured switch edge ports do not cause Layer 2 loops if a port is mistakenly connected to another switch?
+	**BPDU guard
+	Extended system ID
+	PortFast
+	PVST+
 
 
-12. After which step of the switch bootup sequence is the boot loader executed?
-	after CPU initialization
-	after IOS localization
-	after flash file system initialization
-	**after POST execution
+20. What is an advantage of using STP in a LAN?
+	It combines multiple switch trunk links into a logical port channel link to increase bandwidth.
+	It decreases the size of the failure domain.
+	It provides firewall services to protect the LAN.
+	**It temporarily disables redundant paths to stop Layer 2 loops.
 
 
-13. Which impact does adding a Layer 2 switch have on a network?
-	an increase in the number of dropped frames
-	**an increase in the size of the broadcast domain
-	an increase in the number of network collisions
-	an increase in the size of the collision domain
-
-
-14. Which characteristic describes cut-through switching?
-	Error-free fragments are forwarded, so switching occurs with lower latency.
-	**Frames are forwarded without any error checking.
-	Only outgoing frames are checked for errors.
-	Buffering is used to support different Ethernet speeds.
-
-
-15. What is the significant difference between a hub and a Layer 2 LAN switch?
-	**A hub extends a collision domain, and a switch divides collision domains.
-	A hub divides collision domains, and a switch divides broadcast domains.
-	Each port of a hub is a collision domain, and each port of a switch is a broadcast domain.
-	A hub forwards frames, and a switch forwards only packets.
-
-
-16. Which statement is correct about Ethernet switch frame forwarding decisions?
-	**Frame forwarding decisions are based on MAC address and port mappings in the CAM table.
-	Cut-through frame forwarding ensures that invalid frames are always dropped.
-	Only frames with a broadcast destination address are forwarded out all active switch ports.
-	Unicast frames are always forwarded regardless of the destination MAC address.
-
-
-17. How do switch buffers affect network performance?
-	They provide error checking on the data received.
-	**They store frames received, thus preventing premature frame discarding when network congestion occurs.
-	They provide extra memory for a particular port if autonegotiation of speed or duplex fails.
-	They hold data temporarily when a collision occurs until normal data transmission resumes.
-
-
-18. Which switch characteristic helps keep traffic local and alleviates network congestion?
-	**high port density
-	fast port speed
-	large frame buffers
-	fast internal switching
-
-
-19. Which switch component reduces the amount of packet handling time inside the switch?
-	**ASIC
-	dual processors
-	large buffer size
-	store-and-forward RAM
-
-
-21. What information is added to the switch table from incoming frames?
-	**source MAC address and incoming port number
-	destination MAC address and incoming port number
-	source IP address and incoming port number
-	destination IP address and incoming port number
-
-
-22. Which switching method ensures that the incoming frame is error-free before forwarding?
-	cut-through
-	FCS
-	fragment free
-	**store-and-forward
-
-
-24. Under which two occasions should an administrator disable DTP while managing a local area network? (Choose two.)
-	**when connecting a Cisco switch to a non-Cisco switch
-	when a neighbor switch uses a DTP mode of dynamic auto
-	when a neighbor switch uses a DTP mode of dynamic desirable
-	**on links that should not be trunking
-	on links that should dynamically attempt trunking
-
-
-25. Which two characteristics describe the native VLAN? (Choose two.)
-	Designed to carry traffic that is generated by users, this type of VLAN is also known as the default VLAN.
-	**The native VLAN traffic will be untagged across the trunk link.
-	This VLAN is necessary for remote management of a switch.
-	High priority traffic, such as voice traffic, uses the native VLAN.
-	**The native VLAN provides a common identifier to both ends of a trunk.
-
-
-26. On a switch that is configured with multiple VLANs, which command will remove only VLAN 100 from the switch?
-	Switch# delete flash:vlan.dat
-	Switch(config-if)# no switchport access vlan 100
-	Switch(config-if)# no switchport trunk allowed vlan 100
-	**Switch(config)# no vlan 100
-
-
-28. A network contains multiple VLANs spanning multiple switches. What happens when a device in VLAN 20 sends a broadcast Ethernet frame?
-	All devices in all VLANs see the frame.
-	Devices in VLAN 20 and the management VLAN see the frame.
-	**Only devices in VLAN 20 see the frame.
-	Only devices that are connected to the local switch see the frame.
-
-
-30. What happens to switch ports after the VLAN to which they are assigned is deleted?
-	The ports are disabled.
-	The ports are placed in trunk mode.
-	The ports are assigned to VLAN1, the default VLAN.
-	**The ports stop communicating with the attached devices.
-
-
-Explanation: The IEEE 802.1Q standard header includes a 4-byte VLAN tag:
-	**Type – A 2-byte value called the tag protocol ID (TPID) value.
-	**User priority – A 3-bit value that supports level or service implementation.
-	**Canonical Format Identifier (CFI) – A 1-bit identifier that enables Token Ring frames to be carried across Ethernet links.
-	**VLAN ID (VID) – A 12-bit VLAN identification number that supports up to 4096 VLAN IDs.
-
-
-34. Port Fa0/11 on a switch is assigned to VLAN 30. If the command no switchport access vlan 30 is entered on the Fa0/11 interface, what will happen?
-	Port Fa0/11 will be shutdown.
-	An error message would be displayed.
-	**Port Fa0/11 will be returned to VLAN 1.
-	VLAN 30 will be deleted.
-
-
-35. Which command displays the encapsulation type, the voice VLAN ID, and the access mode VLAN for the Fa0/1 interface?
-	show vlan brief
-	**show interfaces Fa0/1 switchport
-	show mac address-table interface Fa0/1
-	show interfaces trunk
-
-
-36. Refer to the exhibit. A technician is programming switch SW3 to manage voice and data traffic through port Fa0/20. What, if anything, is wrong with the configuration?
-	There is nothing wrong with the configuration.
-	Interface Fa0/20 can only have one VLAN assigned.
-	The mls qos trust cos command should reference VLAN 35.
-	**The command used to assign the voice VLAN to the switch port is incorrect.
-
-
-37. Which four steps are needed to configure a voice VLAN on a switch port? (Choose four).
-	Configure the interface as an IEEE 802.1Q trunk.
-	**Assign the voice VLAN to the switch port.
-	Activate spanning-tree PortFast on the interface.
-	**Ensure that voice traffic is trusted and tagged with a CoS priority value. 
-	**Add a voice VLAN.
-	Configure the switch port interface with subinterfaces.
-	Assign a data VLAN to the switch port.
-	**Configure the switch port in access mode.
-
-
-40. Refer to the exhibit. A network administrator has configured router CiscoVille with the above commands to provide inter-VLAN routing. What command will be required on a switch that is connected to the Gi0/0 interface on router CiscoVille to allow inter-VLAN routing?​
-	switchport mode access
-	no switchport
-	**switchport mode trunk
-	switchport mode dynamic desirable
-
-
-41. A high school uses VLAN15 for the laboratory network and VLAN30 for the faculty network. What is required to enable communication between these two VLANs while using the router-on-a-stick approach?
-	A multilayer switch is needed.
-	A router with at least two LAN interfaces is needed.
-	Two groups of switches are needed, each with ports that are configured for one VLAN.
-	**A switch with a port that is configured as a trunk is needed when connecting to the router.
-
-
-42. When routing a large number of VLANs, what are two disadvantages of using the router-on-a-stick inter-VLAN routing method rather than the multilayer switch inter-VLAN routing method? (Choose two.)
-	Multiple SVIs are needed.
-	**A dedicated router is required.
-	Router-on-a-stick requires subinterfaces to be configured on the same subnets.
-	Router-on-a-stick requires multiple physical interfaces on a router.
-	**Multiple subinterfaces may impact the traffic flow speed.
-
-
-45. Refer to the exhibit. A network administrator has configured router CiscoVille with the above commands to provide inter-VLAN routing. What type of port will be required on a switch that is connected to Gi0/0 on router CiscoVille to allow inter-VLAN routing?
-	routed port
-	access port
-	**trunk port
-	SVI
-
-
-48. What is a characteristic of a routed port on a Layer 3 switch?
-	It supports trunking.
-	**It is not assigned to a VLAN.
-	It is commonly used as a WAN link.
-	It cannot have an IP address assigned to it.
-
-
-50. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw(config-if)# mdix auto command?
-	**It automatically adjusts the port to allow device connections to use either a straight-through or a crossover cable.
-	It applies an IPv4 address to the virtual interface.
-	It applies an IPv6 address to the virtual interface.
-	It permits an IPv6 address to be configured on a switch physical interface.
-	It updates the MAC address table for the associated port.
-
-
-51. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw(config-if)# ip address 172.18.33.88 255.255.255.0 command?
-	**It applies an IPv4 address to the virtual interface.
-	It applies an IPv6 address to the virtual interface.
-	It activates a virtual or physical switch interface.
-	It permits an IPv6 address to be configured on a switch physical interface.
-	It updates the MAC address table for the associated port.
-
-
-52. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw# configure terminal command?
-	**It enters the global configuration mode.
-	It enters configuration mode for a switch virtual interface.
-	It applies an IPv4 address to the virtual interface.
-	It updates the MAC address table for the associated port.
-	It permits an IPv6 address to be configured on a switch physical interface.
-
-
-53. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw# configure terminal command?
-	**It enters the global configuration mode.
-	It saves the running configuration to NVRAM.
-	It disables a virtual or physical switch interface.
-	It updates the MAC address table for the associated port.
-	It saves the startup configuration to the running configuration.
-
-
-54. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw(config-if)# shutdown command?
-	**It disables a virtual or physical switch interface.
-	It saves the running configuration to NVRAM.
-	It activates a virtual or physical switch interface.
-	It updates the MAC address table for the associated port.
-	It saves the startup configuration to the running configuration.
-
-
-55. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw(config-if)# shutdown command?
-	**It disables a virtual or physical switch interface.
-	It applies an IPv6 address to the virtual interface.
-	It applies an IPv4 address to the virtual interface.
-	It permits an IPv6 address to be configured on a switch physical interface.
-	It updates the MAC address table for the associated port.
-
-
-56. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw(config-if)# ipv6 address 2001:db8:a2b4:88::1/64 command?
-	**It applies an IPv6 address to the virtual interface.
-	It activates a virtual or physical switch interface.
-	It applies an IPv4 address to the virtual interface.
-	It permits an IPv6 address to be configured on a switch physical interface.
-	It updates the MAC address table for the associated port.
-
-
-57. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw(config-if)# exit command?
-	**It returns to global configuration mode.
-	It returns to privileged mode.
-	It configures the default gateway for the switch.
-	It enters user mode.
-	It saves the startup configuration to the running configuration.
-
-
-58. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw> enable command?
-	**It enters privileged mode.
-	It enters the global configuration mode.
-	It enters configuration mode for a switch virtual interface.
-	It updates the MAC address table for the associated port.
-	It permits an IPv6 address to be configured on a switch physical interface.
-
-
-58. A technician is configuring a new Cisco 2960 switch. What is the effect of issuing the BranchSw(config-if)# duplex full command?
-	**It allows data to flow in both directions at the same time on the interface.
-	It allows data to flow in only one direction at a time on the interface
-	It automatically adjusts the port to allow device connections to use either a straight-through or a crossover cable.
-	It configures the switch as the default gateway.
-	It encrypts user-mode passwords when users connect remotely.
-
-
-60. What type of VLAN should not carry voice and network management traffic?
-	**data VLAN
-	voice VLAN
-	management VLAN
-	security VLAN
-
-
-62. What type of VLAN is designed to reserve bandwidth to ensure IP Phone quality?
-	**voice VLAN
-	trunk VLAN
-	security VLAN
-	management VLAN
-
-
-63. What type of VLAN is initially the management VLAN?
-	**default VLAN
-	native VLAN
-	data VLAN
-	management VLAN
-
-
-64. What type of VLAN is designed to have a delay of less than 150 ms across the network?
-	**voice VLAN
-	desirable VLAN
-	trunk VLAN
-	security VLAN
-
-
-65. What type of VLAN is used to separate the network into groups of users or devices?
-	**data VLAN
-	management VLAN
-	voice VLAN
-	native VLAN
-
-
-66. What type of VLAN is configured specifically for network traffic such as SSH, Telnet, HTTPS, HTTP, and SNMP?
-	**management VLAN
-	security VLAN
-	trunk VLAN
-	voice VLAN
-
-
-68. What type of VLAN supports untagged traffic?
-	**native VLAN
-	voice VLAN
-	security VLAN
-	management VLAN
-
-
-69. What type of VLAN supports untagged traffic?
-	**native VLAN
-	desirable VLAN
-	trunk VLAN
-	security VLAN
-
-
-72. Which solution would help a college alleviate network congestion due to collisions?
-	a firewall that connects to two Internet providers
-	**a high port density switch
-	a router with two Ethernet ports
-	a router with three Ethernet ports
-
-
-73. Which two statements are correct with respect to SVI inter-VLAN routing? (Choose two.)
-	**Switching packets is faster with SVI. 
-	**There is no need for a connection to a router.
-	Virtual interfaces support subinterfaces.
-	SVIs can be bundled into EtherChannels.
-	SVIs eliminate the need for a default gateway in the hosts.
-
-
-75. Which type of VLAN is used to designate which traffic is untagged when crossing a trunk port?
-	data
-	default
-	**native
-	management
-
-
-76. A network administrator issues the show vlan brief command while troubleshooting a user support ticket. What output will be displayed?
-	the VLAN assignment and membership for device MAC addresses
-	**the VLAN assignment and membership for all switch ports
-	the VLAN assignment and trunking encapsulation
-	the VLAN assignment and native VLAN
-
-
-Which message is displayed when 10.10.10.1 is entered into the PC1 Web Browser address bar?
-	Local Server
-	Test Server
-	**File Server
-	Cisco Server
-
-
-Explanation:Place the options in the following order:
-	a client initiating a message to find a DHCP server – DHCPDISCOVER
-	a DHCP server responding to the initial request by a client – DHCPOFFER
-	the client accepting the IP address provided by the DHCP server – DHCPREQUEST
-	the DHCP server confirming that the lease has been accepted – DHCPACK
-
-
-79. What type of VLAN is configured specifically for network traffic such as SSH, Telnet, HTTPS, HHTP, and SNMP?
-	voice VLAN
-	**management VLAN
-	native VLAN
-	security VLAN
+21. Which two statements regarding a PortFast enabled switch port are true? (Choose two.)
+	**The port immediately transitions from blocking to forwarding state.
+	The port immediately transitions from listening to forwarding state.
+	The port immediately processes any BPDUs before transitioning to the forwarding state.
+	The port sends DHCP requests before transitioning to the forwarding state.
+	**The port should never receive BPDUs.
 
 
