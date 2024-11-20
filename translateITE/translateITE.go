@@ -85,7 +85,7 @@ func yandexTranslate(toTranslate string) string {
 	// fmt.Println("Response:", bodyString)
 	var responseText map[string][]map[string]string
 	json.Unmarshal(ResponseBodyBytes, &responseText)
-	fmt.Println(responseText["translations"][0]["text"])
+	ruText = responseText["translations"][0]["text"]
 	return ruText
 }
 
