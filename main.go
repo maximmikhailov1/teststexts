@@ -12,7 +12,8 @@ import (
 	"github.com/geziyor/geziyor/export"
 )
 
-var cliOutput bool = false // false - без вывода в консоль true с выводом
+var cliOutput bool = false     // false - без вывода в консоль; true с выводом
+var displayCounter bool = true // false - без счётчика; true c счётчиком
 //mb stoit TO PARSE
 // https://itexamanswers.net/ccna-2-v7-0-final-exam-answers-full-switching-routing-and-wireless-essentials.html
 // https://itexamanswers.net/ccna-1-v5-1-v6-0-practice-final-exam-answers-100-full.html
@@ -41,28 +42,47 @@ func main() {
 }
 
 func parseTestsAncient(g *geziyor.Geziyor, r *client.Response) {
-	file, err := os.Create("cur.txt")
+	fileEn, err := os.Create("curEN.txt")
 	if err != nil {
 		fmt.Println("Unable to create file:", err)
 		os.Exit(1)
 	}
-	defer file.Close()
+	defer fileEn.Close()
+	fileRu, err := os.Create("curRU.txt")
+	if err != nil {
+		fmt.Println("Unable to create file:", err)
+		os.Exit(1)
+	}
+	defer fileRu.Close()
+
 	content := r.HTMLDoc.Find("ol")
-	content.Find("ol > li").Each(func(i int, s *goquery.Selection) {
+	work := content.Find("ol > li")
+	work.Each(func(i int, s *goquery.Selection) {
+		if displayCounter {
+			fmt.Printf("%d/%d\n", i+1, work.Length()+1)
+		}
 		question := s.Find("strong").Text()
-		file.WriteString(question + "\n")
-		fmt.Println(question)
+		fileEn.WriteString(question + "\n")
+		fileRu.WriteString(transateITE.TranslateITE(question) + "\n")
+		if cliOutput {
+			fmt.Println(question)
+		}
 		s.Find("li").Each(func(i int, s *goquery.Selection) {
 			liText := s.Text()
 			if len(s.Children().Text()) != 0 {
 				liText = "**" + liText
 			}
-			file.WriteString("\t" + liText + "\n")
-			fmt.Println("\t" + liText)
+			fileEn.WriteString("\t" + liText + "\n")
+			fileRu.WriteString("\t" + transateITE.TranslateITE(liText) + "\n")
+			if cliOutput {
+				fmt.Println("\t" + liText)
+			}
 		})
-		file.WriteString("\n\n")
-		fmt.Println()
-		fmt.Println()
+		fileEn.WriteString("\n\n")
+		if cliOutput {
+			fmt.Println()
+			fmt.Println()
+		}
 	})
 
 }
@@ -83,7 +103,11 @@ func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
 	// parsedQuestions := make([]string, 0, 2)
 	// parsedAnswers := make(map[int][]string)
 	content := r.HTMLDoc.Find("div.post-single-content.box.mark-links.entry-content")
-	content.Find("p + ul").Each(func(i int, s *goquery.Selection) {
+	work := content.Find("p + ul")
+	work.Each(func(i int, s *goquery.Selection) {
+		if displayCounter {
+			fmt.Printf("%d/%d\n", i+1, work.Length())
+		}
 		p := s.Prev()
 		//вопрос всегда над ответом
 		for len(p.Text()) == 0 {
@@ -101,19 +125,27 @@ func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
 			answers = append(answers, liText)
 		})
 
-		fmt.Println(pText)
+		if cliOutput {
+			fmt.Println(pText)
+		}
 		fileEn.WriteString(pText + "\n")
-		fmt.Println(pTextRu)
+		if cliOutput {
+			fmt.Println(pTextRu)
+		}
 		fileRu.WriteString(pTextRu + "\n")
 		for _, answer := range answers {
-			fmt.Println("\t" + answer)
+			if cliOutput {
+				fmt.Println("\t" + answer)
+			}
 			fileEn.WriteString("\t" + answer + "\n")
-			fileRu.WriteString("\t" + transateITE.TranslateITE(answer))
+			fileRu.WriteString("\t" + transateITE.TranslateITE(answer) + "\n")
 		}
 		fileEn.WriteString("\n\n")
 		fileRu.WriteString("\n\n")
-		fmt.Println()
-		fmt.Println()
+		if cliOutput {
+			fmt.Println()
+			fmt.Println()
+		}
 	})
 	// for _, v := range peshki.EachIter() {
 	// 	fmt.Println(v.Text())
