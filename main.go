@@ -4,12 +4,15 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	transateITE "teststexts/translateITE"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/geziyor/geziyor"
 	"github.com/geziyor/geziyor/client"
 	"github.com/geziyor/geziyor/export"
 )
+
+var cliOutput bool = false // false - без вывода в консоль true с выводом
 
 func main() {
 	url := "https://itexamanswers.net/ccna-2-v7-modules-1-4-switching-concepts-vlans-and-intervlan-routing-exam-answers.html" // ССЫЛКУ СЮДА
@@ -48,12 +51,18 @@ func parseTestsAncient(g *geziyor.Geziyor, r *client.Response) {
 }
 
 func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
-	file, err := os.Create("cur.txt")
+	fileEn, err := os.Create("curEN.txt")
 	if err != nil {
 		fmt.Println("Unable to create file:", err)
 		os.Exit(1)
 	}
-	defer file.Close()
+	defer fileEn.Close()
+	fileRu, err := os.Create("curRU.txt")
+	if err != nil {
+		fmt.Println("Unable to create file:", err)
+		os.Exit(1)
+	}
+	defer fileRu.Close()
 	// parsedQuestions := make([]string, 0, 2)
 	// parsedAnswers := make(map[int][]string)
 	content := r.HTMLDoc.Find("div.post-single-content.box.mark-links.entry-content")
@@ -65,6 +74,7 @@ func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
 		}
 		ul := s
 		pText := strings.ReplaceAll(p.Text(), "\n", " ")
+		pTextRu := transateITE.TranslateITE(pText)
 		answers := make([]string, 0, 4)
 		ul.Find("li").Each(func(i int, s *goquery.Selection) {
 			liText := s.Text()
@@ -75,12 +85,16 @@ func parseTestsITE(g *geziyor.Geziyor, r *client.Response) {
 		})
 
 		fmt.Println(pText)
-		file.WriteString(pText + "\n")
-		for _, v := range answers {
-			fmt.Println("\t" + v)
-			file.WriteString("\t" + v + "\n")
+		fileEn.WriteString(pText + "\n")
+		fmt.Println(pTextRu)
+		fileRu.WriteString(pTextRu + "\n")
+		for _, answer := range answers {
+			fmt.Println("\t" + answer)
+			fileEn.WriteString("\t" + answer + "\n")
+			fileRu.WriteString("\t" + transateITE.TranslateITE(answer))
 		}
-		file.WriteString("\n\n")
+		fileEn.WriteString("\n\n")
+		fileRu.WriteString("\n\n")
 		fmt.Println()
 		fmt.Println()
 	})

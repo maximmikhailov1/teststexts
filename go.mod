@@ -4,7 +4,10 @@ go 1.23.2
 
 require google.golang.org/api v0.206.0
 
-require cloud.google.com/go v0.116.0 // indirect
+require (
+	cloud.google.com/go v0.116.0 // indirect
+	github.com/gilang-as/google-translate v0.1.1 // indirect
+)
 
 require (
 	cloud.google.com/go/auth v0.10.2 // indirect

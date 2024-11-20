@@ -1,0 +1,68 @@
+1. Which tasks can be accomplished by using the command history feature? (Choose two.)
+	View a list of commands entered in a previous session.
+	Recall up to 15 command lines by default.
+	**Set the command history buffer size.
+	**Recall previously entered commands.
+	Save command lines in a log file for future reference.
+
+
+2. What is the first action in the boot sequence when a switch is powered on?
+	load the default Cisco IOS software
+	load boot loader software
+	low-level CPU initialization
+	**load a power-on self-test program
+
+
+3. What must an administrator have in order to reset a lost password on a router?
+	a TFTP server
+	a crossover cable
+	access to another router
+	**physical access to the router
+
+
+4. When configuring a switch for SSH access, what other command that is associated with the login local command is required to be entered on the switch?
+	**enable secret password
+	**password password
+	**username username secret secret
+	**login block-for seconds attempts number within*seconds*
+
+
+5. Which command displays information about the auto-MDIX setting for a specific interface?​
+	show interfaces
+	**show controllers
+	show processes
+	show running-config
+
+
+6. If one end of an Ethernet connection is configured for full duplex and the other end of the connection is configured for half duplex, where would late collisions be observed?
+	on both ends of the connection
+	on the full-duplex end of the connection
+	only on serial interfaces
+	**on the half-duplex end of the connection
+
+
+7. Which command is used to set the BOOT environment variable that defines where to find the IOS image file on a switch?
+	config-register
+	**boot system
+	boot loader
+	confreg
+
+
+8. What does a switch use to locate and load the IOS image?
+	**BOOT environment variable
+	IOS image file
+	POST
+	startup-config
+	NVRAM
+
+
+9. Which protocol adds security to remote connections?
+	FTP
+	HTTP
+	NetBEUI
+	POP
+	**SSH
+
+
+10. What is a characteristic of an IPv4 loopback interface on a Cisco IOS router?​
+	The no shutdown command is required to place this interface in an UP state.​
