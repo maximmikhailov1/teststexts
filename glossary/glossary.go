@@ -26,12 +26,12 @@ var Glossary = []map[string]any{
 	{
 		"sourceText":     "PVST",
 		"translatedText": "PVST",
-		"exact":          false,
+		"exact":          true,
 	},
 	{
 		"sourceText":     "Rapid PVST",
 		"translatedText": "Rapid PVST",
-		"exact":          false,
+		"exact":          true,
 	},
 	{
 		"sourceText":     "forwarding",
@@ -41,6 +41,6 @@ var Glossary = []map[string]any{
 	{
 		"sourceText":     "PVST+",
 		"translatedText": "PVST+",
-		"exact":          false,
+		"exact":          true,
 	},
 }
